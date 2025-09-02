@@ -3,8 +3,14 @@ git config --global user.name Fabio18HB
 git config --global user.email fabheriq@gmail.com
 
 -- -o = output
+CRIA O PROJETO FAZER UMA VEZ SÓ E NUNCA MAIS
 dotnet new mvc -o Pokedex
+
+
+
 cd Pokedex
+dotnet watch run
+
 
 dotnet add package Microsoft.EntityFrameworkCore --version 9.0.8
 

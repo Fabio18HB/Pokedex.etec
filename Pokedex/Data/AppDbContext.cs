@@ -1,5 +1,3 @@
-using System.Data.Common;
-using System.Formats.Tar;
 using Microsoft.EntityFrameworkCore;
 using Pokedex.Models;
 

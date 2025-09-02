@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Pokedex.Models
+namespace Pokedex.Models;
 
     [Table("PokemonTipo")]
     public class PokemonTipo
