@@ -1,5 +1,5 @@
-@model  DetailVM
-@{
+@model DetailVM
+@{ 
     ViewData["Title"] = "Pokemon";
 }
 
@@ -8,9 +8,9 @@
         <div class="col text-center">
             @if (Model.Anterior != null)
             {
-                <a asp-action="Details" asp-route-id= "@Model.Anterior.Numero" 
-                class="btn btn-lg btn-outline-danger text-white">
-                @Model.Anterior.Numero.ToString("000") - @Model.Anterior.Nome    
+                <a asp-action="Details" asp-route-id="@Model.Anterior.Numero"
+                    class="btn btn-lg btn-outline-danger text-white">
+                    @Model.Anterior.Numero.ToString("000") - @Model.Anterior.Nome
                 </a>
             }
         </div>
@@ -20,32 +20,30 @@
         <div class="col text-center">
             @if (Model.Proximo != null)
             {
-            <a asp-action="Details" asp-route-id= "@Model.Proximo.Numero" 
-                class="btn btn-lg btn-outline-danger text-white">
-                @Model.Proximo.Numero.ToString("000") - @Model.Proximo.Nome    
+                <a asp-action="Details" asp-route-id="@Model.Proximo.Numero"
+                    class="btn btn-lg btn-outline-danger text-white">
+                    @Model.Proximo.Numero.ToString("000") - @Model.Proximo.Nome
                 </a>
             }
         </div>
-
     </div>
 
     <div class="row mt-5">
         <div class="col-lg-5 p-0">
             <img class="img-fluid cursor-pointer" src="@Model.Atual.Imagem" alt="@Model.Atual.Nome">
-    using Pokedex.ViewModel.Atuals;
         </div>
         <div class="col-lg-7 fs-5 mt-4">
-            <p class="mb-3"><strong>Descrição:</strong> @Model.Atual.Descricao</p>
-            <p class="mb-3"><strong>Genero:</strong> @Model.Atual.Genero.Nome</p>
-            <p class="mb-3"><strong>Região:</strong> @Model.Atual.Regiao.Nome</p>
-            <p class="mb-3"><strong>Altura:</strong> @Model.Atual.Altura mts</p>
-            <p class="mb-3"><strong>Peso:</strong> @Model.Atual.Peso kgs</p>
+            <p class="mb-3"><strong>Descrição:</strong>@Model.Atual.Descricao</p>
+            <p class="mb-3"><strong>Região:</strong>@Model.Atual.Genero.Nome</p>
+            <p class="mb-3"><strong>Região:</strong>@Model.Atual.Regiao.Nome</p>
+            <p class="mb-3"><strong>Altura:</strong>@Model.Atual.Altura mts</p>
+            <p class="mb-3"><strong>Peso:</strong>@Model.Atual.Peso kgs</p>
             <p class="fw-bold">Tipo</p>
             <div class="d-flex gap-2 my-2">
                 @foreach (var tipo in Model.Atual.Tipos)
                 {
                     <a href="#" class="btn btn-lg text-white" style="background-color:@tipo.Tipo.Cor">@tipo.Tipo.Nome</a>
-                }
+                }   
             </div>
         </div>
     </div>

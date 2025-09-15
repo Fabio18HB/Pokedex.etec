@@ -12,4 +12,4 @@ public class Genero
     [StringLength(30)]
     [Required(ErrorMessage = "Por favor, informe o nome")]
     public string Nome { get; set; }
-}   
+}
