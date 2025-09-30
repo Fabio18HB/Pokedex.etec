@@ -1,0 +1,79 @@
+@model IEnumerable<Pokedex.Models.Pokemon>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Pokemon</h1>
+<h4>Lista</h4>
+<hr />
+<p>
+    <a class="btn btn-danger px-5" asp-action="Create">
+        <i class="bi bi-plus-circle-fill"></i> Adicionar
+    </a>
+</p>
+<table class="table table-striped" id="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>Tipos</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regiao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @string.Join(", ", item.Tipos.Select(t => t.Tipo.Nome))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Regiao.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero.Nome)
+                </td>
+                <td>
+                    <a class="text-decoration-none text-danger" asp-action="Edit" asp-route-id="@item.Numero">
+                        <i class="bi bi-pencil-square" title="Alterar"></i>
+                    </a> 
+                    <a class="text-decoration-none text-danger mx-2" asp-action="Details" asp-route-id="@item.Numero">
+                        <i class="bi bi-newspaper" title="Detalhes"></i>
+                    </a> 
+                    <a class="text-decoration-none text-danger" asp-action="Delete" asp-route-id="@item.Numero">
+                        <i class="bi bi-trash-fill" title="Excluir"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles {
+    <link rel="stylesheet" href="//cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+}
+
+@section Scripts {
+    <script src="//cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#table');
+    </script>
+}
